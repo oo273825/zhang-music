@@ -22,15 +22,15 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!args[0])
-      return client.sendTime(message.channel, "❌ | **Invalid arguments.**");
+      return client.sendTime(message.channel, "❌ | **無效的參數.**");
 
     // Check if (args[0] - 1) is a valid index
     let trackNum = parseInt(args[0] - 1);
     if (trackNum < 1 || trackNum > player.queue.length - 1) {
-      return client.sendTime(message.channel, "❌ | **Invalid track number.**");
+      return client.sendTime(message.channel, "❌ | **無效的曲目編號**");
     }
 
     // Remove from and shift array
@@ -39,7 +39,7 @@ module.exports = {
     player.queue.unshift(track);
     client.sendTime(
       message.channel,
-      "✅ | **" + track.title + "** has been moved to the front of the queue."
+      "✅ | **" + track.title + "** 已經移到隊列的最前面"
     );
   },
 
@@ -50,7 +50,7 @@ module.exports = {
         value: "track",
         type: 4,
         required: true,
-        description: "Moves selected track to the front of the queue.",
+        description: "將曲目移到隊列的最前面.",
       },
     ],
     /**
@@ -68,15 +68,15 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
       if (!args[0].value)
-        return client.sendTime(interaction, "❌ | **Invalid track number.**");
+        return client.sendTime(interaction, "❌ | **無效的曲目編號**");
 
       // Check if (args[0] - 1) is a valid index
       let trackNum = parseInt(args[0].value - 1);
       if (trackNum < 1 || trackNum > player.queue.length - 1) {
-        return client.sendTime(interaction, "❌ | **Invalid track number.**");
+        return client.sendTime(interaction, "❌ | **無效的曲目編號**");
       }
 
       // Remove from and shift array
@@ -87,7 +87,7 @@ module.exports = {
         interaction,
         "✅ | **" +
           player.queue[0].title +
-          "** has been moved to the front of the queue."
+          "** 已經移到隊列的最前面"
       );
     },
   },

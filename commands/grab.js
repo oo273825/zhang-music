@@ -3,7 +3,7 @@ const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
   name: "grab",
-  description: "Saves the current song to your Direct Messages",
+  description: "讓張先生將當前歌曲送到你的私人訊息",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -22,17 +22,17 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!player.playing)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -40,7 +40,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
       );
     message.author
       .send(
@@ -80,10 +80,10 @@ module.exports = {
           )
       )
       .catch((e) => {
-        return message.channel.send("**❌ Your DMs are disabled**");
+        return message.channel.send("**❌ 你的私人訊息尚未啟用**");
       });
 
-    client.sendTime(message.channel, "✅ | **Check your DMs!**");
+    client.sendTime(message.channel, "✅ | **已傳送到你的私人訊息!**");
   },
   SlashCommand: {
     /**
@@ -101,17 +101,17 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
       if (!player.playing)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **你必須先加入語音頻道!**"
         );
       if (
         guild.me.voice.channel &&
@@ -119,7 +119,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
         );
       try {
         let embed = new MessageEmbed()
@@ -154,10 +154,10 @@ module.exports = {
           );
         user.send(embed);
       } catch (e) {
-        return client.sendTime(interaction, "**❌ Your DMs are disabled**");
+        return client.sendTime(interaction, "**❌ 你的私人訊息尚未啟用**");
       }
 
-      client.sendTime(interaction, "✅ | **Check your DMs!**");
+      client.sendTime(interaction, "✅ | **已傳送到你的私人訊息!**");
     },
   },
 };

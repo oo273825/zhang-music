@@ -3,7 +3,7 @@ const { TrackUtils } = require("erela.js");
 
 module.exports = {
   name: "pause",
-  description: "Pauses the music",
+  description: "暫停歌曲播放",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -22,12 +22,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -35,18 +35,18 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
       );
     if (player.paused)
       return client.sendTime(
         message.channel,
-        "❌ | **Music is already paused!**"
+        "❌ | **歌曲已經被暫停了啦!**"
       );
     player.pause(true);
     let embed = new MessageEmbed()
       .setAuthor(`Paused!`, client.botconfig.IconURL)
       .setColor(client.botconfig.EmbedColor)
-      .setDescription(`Type \`${GuildDB.prefix}resume\` to continue playing!`);
+      .setDescription(`輸入 \`${GuildDB.prefix}resume\` 來繼續播放!`);
     await message.channel.send(embed);
     await message.react("✅");
   },
@@ -66,7 +66,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **你必須先加入語音頻道!**"
         );
       if (
         guild.me.voice.channel &&
@@ -74,19 +74,19 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
         );
 
       let player = await client.Manager.get(interaction.guild_id);
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
       if (player.paused)
-        return client.sendTime(interaction, "Music is already paused!");
+        return client.sendTime(interaction, "歌曲已經被暫停了啦!");
       player.pause(true);
-      client.sendTime(interaction, "**⏸ Paused!**");
+      client.sendTime(interaction, "**⏸ 暫停!**");
     },
   },
 };

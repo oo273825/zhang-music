@@ -5,7 +5,7 @@ const _ = require("lodash");
 
 module.exports = {
   name: "lyrics",
-  description: "Shows the lyrics of the song searched",
+  description: "顯示當前歌曲的歌詞",
   usage: "[Song Name]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -26,7 +26,7 @@ module.exports = {
     if (!args[0] && !player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!args[0]) SongTitle = player.queue.current.title;
     SongTitle = SongTitle.replace(
@@ -38,7 +38,7 @@ module.exports = {
     if (!lyrics)
       return client.sendTime(
         message.channel,
-        `**No lyrics found for -** \`${SongTitle}\``
+        `**沒有找到 -** \`${SongTitle}\` ** 的歌詞**`
       );
     lyrics = lyrics.split("\n"); //spliting into lines
     let SplitedLyrics = _.chunk(lyrics, 40); //45 lines each page
@@ -66,7 +66,7 @@ module.exports = {
         name: "song",
         value: "song",
         type: 3,
-        description: "Enter a song name to search",
+        description: "輸入要搜索的歌曲名稱",
         required: false,
       },
     ],
@@ -84,7 +84,7 @@ module.exports = {
       if (!interaction.data.options && !player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
 
       SongTitle = interaction.data.options
@@ -95,7 +95,7 @@ module.exports = {
       if (lyrics.length === 0)
         return client.sendTime(
           interaction,
-          `**No lyrics found for -** \`${SongTitle}\``
+          `**沒有找到 -** \`${SongTitle}\`** 的歌詞**`
         );
       lyrics = lyrics.split("\n"); //spliting into lines
       let SplitedLyrics = _.chunk(lyrics, 40); //45 lines each page

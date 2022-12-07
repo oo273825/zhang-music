@@ -8,7 +8,7 @@ const levels = {
 };
 module.exports = {
   name: "bassboost",
-  description: "Enables bass boosting audio effect",
+  description: "啟用低音增強效果",
   usage: "<none|low|medium|high>",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -46,7 +46,7 @@ module.exports = {
     if (!args[0])
       return client.sendTime(
         message.channel,
-        "**請提供一個 bassboost level. \nAvailable Levels:** `none`, `low`, `medium`, `high`"
+        "**請提供一個 bassboost level. \n可使用的 Levels:** `none`, `low`, `medium`, `high`"
       );
 
     let level = "none";
@@ -68,7 +68,7 @@ module.exports = {
     options: [
       {
         name: "level",
-        description: `Please provide a bassboost level. Available Levels: low, medium, high, or none`,
+        description: `請提供一個 bassboost level. 可使用的 Levels: low, medium, high, or none`,
         value: "[level]",
         type: 3,
         required: true,

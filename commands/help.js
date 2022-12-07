@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "help",
-  description: "Information about the bot",
+  description: "查看張先生的所有功能",
   usage: "[command]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -50,7 +50,7 @@ module.exports = {
       if (!cmd)
         return client.sendTime(
           message.channel,
-          `❌ | Unable to find that command.`
+          `❌ | 無法找到該命令`
         );
 
       let embed = new MessageEmbed()
@@ -88,7 +88,7 @@ module.exports = {
     options: [
       {
         name: "command",
-        description: "Get information on a specific command",
+        description: "取得特定命令的訊息",
         value: "command",
         type: 3,
         required: false,
@@ -122,7 +122,7 @@ module.exports = {
           }help [Command] | Have a nice day!`
         ).setDescription(`${Commands.join("\n")}
   
-  Discord Music Bot Version: v${require("../package.json").version}
+  張先生目前等級: v${require("../package.json").version}
   [✨ Support Server](${
     client.botconfig.SupportServer
   }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${
@@ -138,7 +138,7 @@ module.exports = {
         if (!cmd)
           return client.sendTime(
             interaction,
-            `❌ | Unable to find that command.`
+            `❌ | 無法找到該命令`
           );
 
         let embed = new MessageEmbed()

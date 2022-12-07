@@ -2,7 +2,7 @@ const { MessageEmbed, MessageReaction } = require("discord.js");
 
 module.exports = {
   name: "config",
-  description: "Edit the bot settings",
+  description: "編輯機器人設置",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -41,7 +41,7 @@ What would you like to edit?
       ConfigMessage.reactions.removeAll();
       client.sendTime(
         message.channel,
-        "❌ | **You took too long to respond. If you want to edit the settings, run the command again!**"
+        "❌ | **你回覆的時間太久了。 如果要編輯設置，請再次運行命令!**"
       );
       ConfigMessage.delete(Config);
     });
@@ -58,7 +58,7 @@ What would you like to edit?
     if (em._emoji.name === "1️⃣") {
       await client.sendTime(
         message.channel,
-        "What do you want to change the prefix to?"
+        "你想將 prefix 設為?"
       );
       let prefix = await message.channel.awaitMessages(
         (msg) => msg.author.id === message.author.id,
@@ -67,7 +67,7 @@ What would you like to edit?
       if (!prefix.first())
         return client.sendTime(
           message.channel,
-          "You took too long to respond."
+          "你回覆的時間太久了"
         );
       prefix = prefix.first();
       prefix = prefix.content;
@@ -79,12 +79,12 @@ What would you like to edit?
 
       client.sendTime(
         message.channel,
-        `Successfully saved guild prefix as \`${prefix}\``
+        `成功將 prefix 設為 \`${prefix}\``
       );
     } else {
       await client.sendTime(
         message.channel,
-        "Please mention the role you want `DJ's` to have."
+        "起提及想成為 `DJ's` 的人."
       );
       let role = await message.channel.awaitMessages(
         (msg) => msg.author.id === message.author.id,
@@ -93,13 +93,13 @@ What would you like to edit?
       if (!role.first())
         return client.sendTime(
           message.channel,
-          "You took too long to respond."
+          "你回覆的時間太久了"
         );
       role = role.first();
       if (!role.mentions.roles.first())
         return client.sendTime(
           message.channel,
-          "Please mention the role that you want for DJ's only."
+          "請僅提及你想要的 DJ 人選"
         );
       role = role.mentions.roles.first();
 
@@ -110,7 +110,7 @@ What would you like to edit?
 
       client.sendTime(
         message.channel,
-        "Successfully saved DJ role as <@&" + role.id + ">"
+        "成功將 DJ 設為 <@&" + role.id + ">"
       );
     }
   },
@@ -119,13 +119,13 @@ What would you like to edit?
     options: [
       {
         name: "prefix",
-        description: "Check the bot's prefix",
+        description: "設置此機器人的 prefix",
         type: 1,
         required: false,
         options: [
           {
             name: "symbol",
-            description: "Set the bot's prefix",
+            description: "設置此機器人的 prefix",
             type: 3,
             required: false,
           },
@@ -133,13 +133,13 @@ What would you like to edit?
       },
       {
         name: "dj",
-        description: "Check the DJ role",
+        description: "確認 DJ 角色",
         type: 1,
         required: false,
         options: [
           {
             name: "role",
-            description: "Set the DJ role",
+            description: "確認 DJ 角色",
             type: 8,
             required: false,
           },
@@ -171,13 +171,13 @@ What would you like to edit?
           });
           client.sendTime(
             interaction,
-            `The prefix has now been set to \`${prefix}\``
+            `prefix 現在已設為 \`${prefix}\``
           );
         } else {
           //has not prefix
           client.sendTime(
             interaction,
-            `The prefix of this server is \`${GuildDB.prefix}\``
+            `此機器人的 prefix 為 \`${GuildDB.prefix}\``
           );
         }
       } else if (config === "djrole") {
@@ -195,7 +195,7 @@ What would you like to edit?
           });
           client.sendTime(
             interaction,
-            `Successfully changed the DJ role of this server to ${role.name}`
+            `成功將 DJ 角色設為 ${role.name}`
           );
         } else {
           /**
@@ -204,7 +204,7 @@ What would you like to edit?
           let role = interaction.guild.roles.cache.get(GuildDB.DJ);
           client.sendTime(
             interaction,
-            `The DJ role of this server is ${role.name}`
+            `DJ 為 ${role.name}`
           );
         }
       }

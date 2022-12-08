@@ -5,13 +5,13 @@ const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
   name: "search",
-  description: "Shows a result of songs based on the search query",
+  description: "搜索所指定的歌曲",
   usage: "[song]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
   },
-  aliases: ["se"],
+  aliases: ["find"],
   /**
    *
    * @param {import("../structures/DiscordMusicBot")} client
@@ -23,7 +23,7 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -31,20 +31,20 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
       );
 
     let SearchString = args.join(" ");
     if (!SearchString)
       return client.sendTime(
         message.channel,
-        `**Usage - **\`${GuildDB.prefix}search [query]\``
+        `**用法 - **\`${GuildDB.prefix}search [query]\``
       );
     let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
     if (!CheckNode || !CheckNode.connected) {
       return client.sendTime(
         message.channel,
-        "❌ | **Lavalink node not connected**"
+        "❌ | **Lavalink node 未連接**"
       );
     }
     const player = client.Manager.create({
@@ -61,7 +61,7 @@ module.exports = {
     if (Searched.loadType == "NO_MATCHES")
       return client.sendTime(
         message.channel,
-        "No matches found for " + SearchString
+        "沒有找到 " + SearchString
       );
     else {
       Searched.tracks = Searched.tracks.map((s, i) => {
@@ -81,7 +81,7 @@ module.exports = {
 
         let em = new MessageEmbed()
           .setAuthor(
-            "Search Results of " + SearchString,
+            "搜尋結果 : " + SearchString,
             client.botconfig.IconURL
           )
           .setColor(client.botconfig.EmbedColor)
@@ -96,7 +96,7 @@ module.exports = {
       let w = (a) => new Promise((r) => setInterval(r, a));
       await w(500); //waits 500ms cuz needed to wait for the above song search embed to send ._.
       let msg = await message.channel.send(
-        "**Type the number of the song you want to play! Expires in `30 seconds`.**"
+        "**輸入要播放的歌曲編號! 限時 `30 秒`.**"
       );
 
       let er = false;
@@ -109,7 +109,7 @@ module.exports = {
         .catch(() => {
           er = true;
           msg.edit(
-            "**You took too long to respond. Run the command again if you want to play something!**"
+            "**你回覆的時間太久了. 請再次運行此命令!**"
           );
         });
       if (er) return;
@@ -119,13 +119,13 @@ module.exports = {
       if (!parseInt(SongIDmsg.content))
         return client.sendTime(
           message.channel,
-          "Please send correct song ID number"
+          "請輸入正確的歌曲編號"
         );
       let Song = Searched.tracks[parseInt(SongIDmsg.content) - 1];
       if (!Song)
         return client.sendTime(
           message.channel,
-          "No song found for the given ID"
+          "找不到此歌曲編號"
         );
       player.queue.add(Song);
       if (!player.playing && !player.paused && !player.queue.size)
@@ -160,7 +160,7 @@ module.exports = {
         value: "song",
         type: 3,
         required: true,
-        description: "Enter the song name or url you want to search",
+        description: "輸入要搜索的歌曲名稱或網址",
       },
     ],
     /**
@@ -178,7 +178,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **你必須先加入語音頻道!**"
         );
       if (
         guild.me.voice.channel &&
@@ -186,13 +186,13 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
         );
       let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
         return client.sendTime(
           interaction,
-          "❌ | **Lavalink node not connected**"
+          "❌ | **Lavalink node 未連接**"
         );
       }
       let player = client.Manager.create({
@@ -216,14 +216,14 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendError(
               interaction,
-              `❌ | **There was an error while searching**`
+              `❌ | **搜索錯誤**`
             );
 
           case "NO_MATCHES":
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found**"
+              "❌ | **沒有找到任何結果**"
             );
           case "TRACK_LOADED":
             player.queue.add(TrackUtils.build(Searched.tracks[0], member.user));
@@ -231,7 +231,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**Added to queue:** \`[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri}}\`.`
+              `**已加入隊列:** \`[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri}}\`.`
             );
 
           case "PLAYLIST_LOADED":
@@ -248,7 +248,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**Playlist added to queue**: \n**${Searched.playlist.name}** \nEnqueued: **${Searched.playlistInfo.length} songs**`
+              `**播放列表已加到隊列**: \n**${Searched.playlist.name}** \nEnqueued: **${Searched.playlistInfo.length} songs**`
             );
         }
       } else {
@@ -261,7 +261,7 @@ module.exports = {
         } catch (err) {
           return client.sendTime(
             interaction,
-            `❌ | **There was an error while searching:** ${err.message}`
+            `❌ | **搜索錯誤:** ${err.message}`
           );
         }
         switch (res.loadType) {
@@ -269,7 +269,7 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found**"
+              "❌ | **沒有找到任何結果**"
             );
           case "TRACK_LOADED":
             player.queue.add(res.tracks[0]);
@@ -277,7 +277,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**Added to queue:** \`[${res.tracks[0].title}](${res.tracks[0].uri})\`.`
+              `**已加入隊列:** \`[${res.tracks[0].title}](${res.tracks[0].uri})\`.`
             );
           case "PLAYLIST_LOADED":
             player.queue.add(res.tracks);
@@ -290,7 +290,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**Playlist added to queue**: \n**${res.playlist.name}** \nEnqueued: **${res.playlistInfo.length} songs**`
+              `**播放列表已加到隊列**: \n**${res.playlist.name}** \nEnqueued: **${res.playlistInfo.length} songs**`
             );
           case "SEARCH_RESULT":
             let max = 10,
@@ -331,7 +331,7 @@ module.exports = {
             } catch (e) {
               if (!player.queue.current) player.destroy();
               return awaitchannel.send(
-                "❌ | **You didn't provide a selection**"
+                "❌ | **你沒有指定曲目編號**"
               );
             }
 
@@ -345,7 +345,7 @@ module.exports = {
             const index = Number(first) - 1;
             if (index < 0 || index > max - 1)
               return awaitchannel.send(
-                `The number you provided was greater or less than the search total. Usage - \`(1-${max})\``
+                `提供的數量大於或小於搜索總數. 用法 - \`(1-${max})\``
               );
             const track = res.tracks[index];
             player.queue.add(track);
@@ -355,7 +355,7 @@ module.exports = {
             } else {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
-                `Added to queue`,
+                `加入隊列`,
                 client.botconfig.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());

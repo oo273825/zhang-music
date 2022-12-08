@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "youtube",
-  description: "Starts a YouTube Together session",
+  description: "啟動 YouTube 同樂模式",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -20,7 +20,7 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       !message.member.voice.channel
@@ -29,7 +29,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **Bot doesn't have Create Invite Permission**"
+        "❌ | **張先生沒有創建邀請權限**"
       );
 
     let Invite = await message.member.voice.channel.activityInvite(
@@ -37,15 +37,15 @@ module.exports = {
     ); //Made using discordjs-activity package
     let embed = new MessageEmbed()
       .setAuthor(
-        "YouTube Together",
-        "https://cdn.discordapp.com/emojis/749289646097432667.png?v=1"
+        "張先生的屁眼派隊",
+        "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
       )
       .setColor("#FF0000").setDescription(`
-Using **YouTube Together** you can watch YouTube with your friends in a Voice Channel. Click *Join YouTube Together* to join in!
+使用 **YouTube 同樂** 你可以在語音頻道中與朋友一起觀看 YouTube. 按下 *張先生的屁眼派隊* 來加入!
 
-__**[Join YouTube Together](https://discord.com/invite/${Invite.code})**__
+__**[加入 YouTube 同樂](https://discord.com/invite/${Invite.code})**__
 
-⚠ **Note:** This only works in Desktop
+⚠ **備註:** 僅能再電腦上運作
 `);
     message.channel.send(embed);
   },
@@ -65,7 +65,7 @@ __**[Join YouTube Together](https://discord.com/invite/${Invite.code})**__
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | You must be in a voice channel to use this command."
+          "❌ | 你必須先加入語音頻道!"
         );
       if (
         !member.voice.channel
@@ -74,7 +74,7 @@ __**[Join YouTube Together](https://discord.com/invite/${Invite.code})**__
       )
         return client.sendTime(
           interaction,
-          "❌ | **Bot doesn't have Create Invite Permission**"
+          "❌ | **張先生沒有創建邀請權限**"
         );
 
       let Invite = await member.voice.channel.activityInvite(
@@ -82,15 +82,15 @@ __**[Join YouTube Together](https://discord.com/invite/${Invite.code})**__
       ); //Made using discordjs-activity package
       let embed = new MessageEmbed()
         .setAuthor(
-          "YouTube Together",
-          "https://cdn.discordapp.com/emojis/749289646097432667.png?v=1"
+          "張先生的屁眼派隊",
+          "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
         )
         .setColor("#FF0000").setDescription(`
-Using **YouTube Together** you can watch YouTube with your friends in a Voice Channel. Click *Join YouTube Together* to join in!
+使用 **YouTube 同樂** 你可以在語音頻道中與朋友一起觀看 YouTube. 按下 *張先生的屁眼派隊* 來加入!
 
-__**[Join YouTube Together](https://discord.com/invite/${Invite.code})**__
+__**[加入 YouTube 同樂](https://discord.com/invite/${Invite.code})**__
 
-⚠ **Note:** This only works in Desktop
+⚠ **備註:** 僅能再電腦上運作
 `);
       interaction.send(embed.toJSON());
     },

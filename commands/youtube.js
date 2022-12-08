@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "youtube",
-  description: "啟動 YouTube 同樂模式",
+  description: "啟動 張先生的屁眼YouTube派隊 模式",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -37,13 +37,13 @@ module.exports = {
     ); //Made using discordjs-activity package
     let embed = new MessageEmbed()
       .setAuthor(
-        "張先生的屁眼派隊",
+        "張先生的屁眼YouTube派隊",
         "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
       )
       .setColor("#FF0000").setDescription(`
-使用 **張先生的屁眼派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼派隊*  來加入!
+使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼YouTube派隊*  來加入!
 
-__**[張先生的屁眼派隊](https://discord.com/invite/${Invite.code})**__
+__**[張先生的屁眼YouTube派隊](https://discord.com/invite/${Invite.code})**__
 
 ⚠ **備註:** 僅能再電腦上運作
 `);
@@ -82,13 +82,13 @@ __**[張先生的屁眼派隊](https://discord.com/invite/${Invite.code})**__
       ); //Made using discordjs-activity package
       let embed = new MessageEmbed()
         .setAuthor(
-          "張先生的屁眼派隊",
+          "張先生的屁眼YouTube派隊",
           "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
         )
         .setColor("#FF0000").setDescription(`
-使用 **張先生的屁眼派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼派隊*  來加入!
+使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼YouTube派隊*  來加入!
 
-__**[張先生的屁眼派隊](https://discord.com/invite/${Invite.code})**__
+__**[張先生的屁眼YouTube派隊](https://discord.com/invite/${Invite.code})**__
 
 ⚠ **備註:** 僅能再電腦上運作
 `);

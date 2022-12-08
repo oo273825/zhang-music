@@ -3,7 +3,7 @@ const { TrackUtils, Player } = require("erela.js");
 
 module.exports = {
   name: "skipto",
-  description: `Skip to a song in the queue`,
+  description: `將跳至隊列中的指定歌曲`,
   usage: "<number>",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -28,12 +28,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -41,20 +41,20 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
       );
 
     try {
       if (!args[0])
         return client.sendTime(
           message.channel,
-          `**Usage**: \`${GuildDB.prefix}skipto [number]\``
+          `**用法**: \`${GuildDB.prefix}skipto [number]\``
         );
       //if the wished track is bigger then the Queue Size
       if (Number(args[0]) > player.queue.size)
         return client.sendTime(
           message.channel,
-          `❌ | That song is not in the queue! Please try again!`
+          `❌ | 此歌曲未在播放隊列中! 請再試一次!`
         );
       //remove all tracks to the jumped song
       player.queue.remove(0, Number(args[0]) - 1);
@@ -77,7 +77,7 @@ module.exports = {
         value: "[position]",
         type: 4,
         required: true,
-        description: "Skips to a specific song in the queue",
+        description: "跳到隊列中的指定歌曲",
       },
     ],
     /**
@@ -95,7 +95,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **你必須先加入語音頻道!**"
         );
       if (
         guild.me.voice.channel &&
@@ -103,13 +103,13 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          `❌ | **You must be in the same voice channel as me to use this command!**`
+          `❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**`
         );
       let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
         return client.sendTime(
           interaction,
-          "❌ | **Lavalink node not connected**"
+          "❌ | **Lavalink node 未連接**"
         );
       }
 
@@ -124,7 +124,7 @@ module.exports = {
         if (!interaction.data.options)
           return client.sendTime(
             interaction,
-            `**Usage**: \`${GuildDB.prefix}skipto <number>\``
+            `**用法**: \`${GuildDB.prefix}skipto <number>\``
           );
         let skipTo = interaction.data.options[0].value;
         //if the wished track is bigger then the Queue Size
@@ -134,7 +134,7 @@ module.exports = {
         )
           return client.sendTime(
             interaction,
-            `❌ | That song is not in the queue! Please try again!`
+            `❌ | 此歌曲未在播放隊列中! 請再試一次!`
           );
 
         player.stop(skipTo);

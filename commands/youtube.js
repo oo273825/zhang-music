@@ -41,7 +41,7 @@ module.exports = {
         "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
       )
       .setColor("#FF0000").setDescription(`
-使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼YouTube派隊*  來加入!
+使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 **張先生的屁眼YouTube派隊**  來加入!
 
 __**[張先生的屁眼YouTube派隊](https://discord.com/invite/${Invite.code})**__
 
@@ -86,7 +86,7 @@ __**[張先生的屁眼YouTube派隊](https://discord.com/invite/${Invite.code})
           "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true"
         )
         .setColor("#FF0000").setDescription(`
-使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 *張先生的屁眼YouTube派隊*  來加入!
+使用 **張先生的屁眼YouTube派隊** 你可以在語音頻道中與朋友一起觀看 YouTube. 快按下 **張先生的屁眼YouTube派隊**  來加入!
 
 __**[張先生的屁眼YouTube派隊](https://discord.com/invite/${Invite.code})**__
 

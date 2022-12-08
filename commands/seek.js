@@ -3,7 +3,7 @@ const { TrackUtils } = require("erela.js");
 
 module.exports = {
   name: "seek",
-  description: "尋找歌曲位置",
+  description: "將當前歌曲跳至指定時間播放",
   usage: "<time s/m/h>",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],

@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "shuffle",
-  description: "Shuffles the queue",
+  description: "隨機分配隊列中的歌曲順序",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -21,12 +21,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **你必須先加入語音頻道!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -34,15 +34,15 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in the same voice channel as me to use this command!**"
+        "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
       );
     if (!player.queue || !player.queue.length || player.queue.length === 0)
       return client.sendTime(
         message.channel,
-        "❌ | **Not enough songs in the queue to shuffle!**"
+        "❌ | **沒有足夠的歌曲來重新隨機順序!**"
       );
     player.queue.shuffle();
-    await client.sendTime(message.channel, "✅ | Shuffled the queue!");
+    await client.sendTime(message.channel, "✅ | 已將歌曲順序隨機分配!");
   },
   SlashCommand: {
     /**
@@ -59,7 +59,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **你必須先加入語音頻道!**"
         );
       if (
         guild.me.voice.channel &&
@@ -67,22 +67,22 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          "❌ | **You must be in the same voice channel as me to use this command!**"
+          "❌ | **你必須和張先生在同一個語音頻道才能使用這個命令!**"
         );
 
       let player = await client.Manager.get(interaction.guild_id);
       if (!player)
         return client.sendTime(
           interaction.channel,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
       if (!player.queue || !player.queue.length || player.queue.length === 0)
         return client.sendTime(
           interaction,
-          "❌ | **Not enough songs in the queue to shuffle!**"
+          "❌ | **沒有足夠的歌曲來重新隨機順序!**"
         );
       player.queue.shuffle();
-      client.sendTime(interaction, "✅ | Shuffled the queue!");
+      client.sendTime(interaction, "✅ | 已將歌曲順序隨機分配!");
     },
   },
 };

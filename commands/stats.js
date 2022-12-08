@@ -5,13 +5,13 @@ const moment = require("moment");
 
 module.exports = {
   name: "stats",
-  description: "Get information about the bot",
+  description: "獲取有關張先生的所有信息",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
   },
-  aliases: ["about", "ping", "info"],
+  aliases: ["about", "ping", "info","u","up","uptime"],
   /**
    *
    * @param {import("../structures/DiscordMusicBot")} client

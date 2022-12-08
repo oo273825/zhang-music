@@ -4,7 +4,7 @@ const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
   name: "queue",
-  description: "Shows all currently enqueued songs",
+  description: "顯示當前隊列裡的所有歌曲",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -23,7 +23,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **現在沒有播放的曲目...**"
       );
 
     if (!player.queue || !player.queue.length || player.queue === 0) {
@@ -74,7 +74,7 @@ module.exports = {
         .setAuthor("Queue", client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(
-          `**Currently Playing:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
+          `**正在播放:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
         )
         .addField("Total songs: \n", `\`${player.queue.totalSize - 1}\``, true)
         .addField(
@@ -132,7 +132,7 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **現在沒有播放的曲目...**"
         );
 
       if (!player.queue || !player.queue.length || player.queue === 0) {
@@ -182,7 +182,7 @@ module.exports = {
           .setAuthor("Queue", client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
           .setDescription(
-            `**Currently Playing:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
+            `**正在播放:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
           )
           .addField(
             "Total songs: \n",

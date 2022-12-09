@@ -31,7 +31,7 @@ module.exports = {
 
       const embed = new MessageEmbed();
       embed.setColor(client.botconfig.EmbedColor);
-      embed.setTitle(`Stats from \`${client.user.username}\``);
+      embed.setTitle(`關於 \`${client.user.username}\` 所有的所有`);
       embed.addFields(
         {
           name: ":ping_pong: Ping",
@@ -110,7 +110,7 @@ module.exports = {
 
         const embed = new MessageEmbed();
         embed.setColor(client.botconfig.EmbedColor);
-        embed.setTitle(`Stats from \`${client.user.username}\``);
+        embed.setTitle(`關於 \`${client.user.username}\` 所有的所有`);
         embed.addFields(
           {
             name: ":ping_pong: Ping",

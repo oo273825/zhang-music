@@ -26,14 +26,14 @@ module.exports = {
 
     let Embed = new MessageEmbed()
       .setAuthor(
-        `Commands of ${client.user.username}`,
+        ` ${client.user.username} 的所有指令`,
         client.botconfig.IconURL
       )
       .setColor(client.botconfig.EmbedColor)
       .setFooter(
-        `To get info of each command type ${
+        `獲得每項指令信息 -使用 ${
           GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
-        }help [Command] | Have a nice day!`
+        }help [Command] | 祝你有個美好的屁眼日!`
       ).setDescription(`${Commands.join("\n")}
   
   Discord Music Bot Version: v${require("../package.json").version}
@@ -112,14 +112,14 @@ module.exports = {
 
       let Embed = new MessageEmbed()
         .setAuthor(
-          `Commands of ${client.user.username}`,
+          ` ${client.user.username} 的所有指令`,
           client.botconfig.IconURL
         )
         .setColor(client.botconfig.EmbedColor)
         .setFooter(
-          `To get info of each command type ${
-            GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
-          }help [Command] | Have a nice day!`
+          `獲得每項指令信息 -使用 ${
+          GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
+        }help [Command] | 祝你有個美好的屁眼日!`
         ).setDescription(`${Commands.join("\n")}
   
   張先生目前等級: v${require("../package.json").version}

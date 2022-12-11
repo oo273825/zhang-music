@@ -41,7 +41,7 @@ module.exports = {
       );
 
     if (!player.queue || !player.queue.length || player.queue.length === 0)
-      return message.channel.send("There is nothing in the queue to remove");
+      return message.channel.send("隊列中沒有需要刪除的曲目");
     let rm = new MessageEmbed()
       .setDescription(
         `✅ **|** 從隊列中移除曲目 **\`${Number(args[0])}\`** !`
@@ -52,7 +52,7 @@ module.exports = {
         `**用法 - **${client.botconfig.prefix}\`remove [track]\``
       );
     if (args[0] > player.queue.length)
-      rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+      rm.setDescription(`隊列中只有 ${player.queue.length} 首歌曲!`);
     await message.channel.send(rm);
     player.queue.remove(Number(args[0]) - 1);
   },
@@ -108,7 +108,7 @@ module.exports = {
       if (isNaN(args[0]))
         rm.setDescription(`**Usage:** \`${GuildDB.prefix}remove [track]\``);
       if (args[0] > player.queue.length)
-        rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+        rm.setDescription(`隊列中只有 ${player.queue.length} 首歌曲!`);
       await interaction.send(rm);
       player.queue.remove(Number(args[0]) - 1);
     },

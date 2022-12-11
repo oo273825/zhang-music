@@ -74,7 +74,7 @@ module.exports = {
           (s) =>
             `\`${s.index + 1}.\` [${s.title}](${
               s.uri
-            }) \nDuration: \`${prettyMilliseconds(s.duration, {
+            }) \n歌曲時間: \`${prettyMilliseconds(s.duration, {
               colonNotation: true,
             })}\``
         );
@@ -131,13 +131,13 @@ module.exports = {
       if (!player.playing && !player.paused && !player.queue.size)
         player.play();
       let SongAddedEmbed = new MessageEmbed();
-      SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+      SongAddedEmbed.setAuthor(`加入隊列`, client.botconfig.IconURL);
       SongAddedEmbed.setThumbnail(Song.displayThumbnail());
       SongAddedEmbed.setColor(client.botconfig.EmbedColor);
       SongAddedEmbed.setDescription(`[${Song.title}](${Song.uri})`);
-      SongAddedEmbed.addField("Author", `${Song.author}`, true);
+      SongAddedEmbed.addField("歌曲來源", `${Song.author}`, true);
       SongAddedEmbed.addField(
-        "Duration",
+        "歌曲時間",
         `\`${prettyMilliseconds(player.queue.current.duration, {
           colonNotation: true,
         })}\``,
@@ -145,7 +145,7 @@ module.exports = {
       );
       if (player.queue.totalSize > 1)
         SongAddedEmbed.addField(
-          "Position in queue",
+          "隊列位置",
           `${player.queue.size - 0}`,
           true
         );
@@ -248,7 +248,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**播放列表已加到隊列**: \n**${Searched.playlist.name}** \nEnqueued: **${Searched.playlistInfo.length} songs**`
+              `**播放列表已加到隊列**: \n**${Searched.playlist.name}** \nEnqueued: **${Searched.playlistInfo.length} 首歌曲**`
             );
         }
       } else {
@@ -290,7 +290,7 @@ module.exports = {
               player.play();
             return client.sendTime(
               interaction,
-              `**播放列表已加到隊列**: \n**${res.playlist.name}** \nEnqueued: **${res.playlistInfo.length} songs**`
+              `**播放列表已加到隊列**: \n**${res.playlist.name}** \nEnqueued: **${res.playlistInfo.length} 首歌曲**`
             );
           case "SEARCH_RESULT":
             let max = 10,
@@ -314,7 +314,7 @@ module.exports = {
 
             const resultss = new MessageEmbed()
               .setDescription(
-                `${results}\n\n\t**Type the number of the song you want to play!**\n`
+                `${results}\n\n\t**輸入你想播放的歌曲編號!**\n`
               )
               .setColor(client.botconfig.EmbedColor)
               .setAuthor(
@@ -361,9 +361,9 @@ module.exports = {
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
               SongAddedEmbed.setColor(client.botconfig.EmbedColor);
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
-              SongAddedEmbed.addField("Author", track.author, true);
+              SongAddedEmbed.addField("歌曲來源", track.author, true);
               SongAddedEmbed.addField(
-                "Duration",
+                "歌曲時間",
                 `\`${prettyMilliseconds(track.duration, {
                   colonNotation: true,
                 })}\``,
@@ -371,7 +371,7 @@ module.exports = {
               );
               if (player.queue.totalSize > 1)
                 SongAddedEmbed.addField(
-                  "Position in queue",
+                  "隊列位置",
                   `${player.queue.size - 0}`,
                   true
                 );

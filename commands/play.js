@@ -39,7 +39,7 @@ module.exports = {
         `**用法 - **\`${GuildDB.prefix}play [song]\``
       );
     let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
-    let Searching = await message.channel.send(":mag_right: Searching...");
+    let Searching = await message.channel.send(":mag_right: 尋找中...");
     if (!CheckNode || !CheckNode.connected) {
       return client.sendTime(
         message.channel,
@@ -88,8 +88,8 @@ module.exports = {
             message.author.displayAvatarURL()
           );
           SongAddedEmbed.addField(
-            "Enqueued",
-            `\`${Searched.tracks.length}\` songs`,
+            "加入隊列",
+            `\`${Searched.tracks.length}\` 首歌曲`,
             false
           );
           //SongAddedEmbed.addField("Playlist duration", `\`${prettyMilliseconds(Searched.tracks, { colonNotation: true })}\``, false)
@@ -100,19 +100,19 @@ module.exports = {
           );
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`加入隊列`, client.botconfig.IconURL);
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
           );
           SongAddedEmbed.addField(
-            "Author",
+            "歌曲來源",
             Searched.tracks[0].info.author,
             true
           );
-          //SongAddedEmbed.addField("Duration", `\`${prettyMilliseconds(Searched.tracks[0].length, { colonNotation: true })}\``, true);
+          //SongAddedEmbed.addField("歌曲時間", `\`${prettyMilliseconds(Searched.tracks[0].length, { colonNotation: true })}\``, true);
           if (player.queue.totalSize > 1)
             SongAddedEmbed.addField(
-              "Position in queue",
+              "隊列位置",
               `${player.queue.size - 0}`,
               true
             );
@@ -153,8 +153,8 @@ module.exports = {
             `[${Searched.playlist.name}](${SearchString})`
           );
           SongAddedEmbed.addField(
-            "Enqueued",
-            `\`${Searched.tracks.length}\` songs`,
+            "加入隊列",
+            `\`${Searched.tracks.length}\` 首歌曲`,
             false
           );
           SongAddedEmbed.addField(
@@ -169,15 +169,15 @@ module.exports = {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`加入隊列`, client.botconfig.IconURL);
 
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].title}](${Searched.tracks[0].uri})`
           );
-          SongAddedEmbed.addField("Author", Searched.tracks[0].author, true);
+          SongAddedEmbed.addField("歌曲來源", Searched.tracks[0].author, true);
           SongAddedEmbed.addField(
-            "Duration",
+            "歌曲時間",
             `\`${prettyMilliseconds(Searched.tracks[0].duration, {
               colonNotation: true,
             })}\``,
@@ -185,7 +185,7 @@ module.exports = {
           );
           if (player.queue.totalSize > 1)
             SongAddedEmbed.addField(
-              "Position in queue",
+              "隊列位置",
               `${player.queue.size - 0}`,
               true
             );
@@ -288,13 +288,13 @@ module.exports = {
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
             );
             SongAddedEmbed.addField(
-              "Author",
+              "歌曲來源",
               Searched.tracks[0].info.author,
               true
             );
             if (player.queue.totalSize > 1)
               SongAddedEmbed.addField(
-                "Position in queue",
+                "隊列位置",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -310,10 +310,10 @@ module.exports = {
             SongAdded.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
             );
-            SongAdded.addField("Author", Searched.tracks[0].info.author, true);
+            SongAdded.addField("歌曲來源", Searched.tracks[0].info.author, true);
             if (player.queue.totalSize > 1)
               SongAdded.addField(
-                "Position in queue",
+                "隊列位置",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -339,8 +339,8 @@ module.exports = {
               `[${Searched.playlistInfo.name}](${interaction.data.options[0].value})`
             );
             Playlist.addField(
-              "Enqueued",
-              `\`${Searched.tracks.length}\` songs`,
+              "加入隊列",
+              `\`${Searched.tracks.length}\` 首歌曲`,
               false
             );
             return interaction.send(Playlist);
@@ -382,9 +382,9 @@ module.exports = {
             SongAddedEmbed.setDescription(
               `[${res.tracks[0].title}](${res.tracks[0].uri})`
             );
-            SongAddedEmbed.addField("Author", res.tracks[0].author, true);
+            SongAddedEmbed.addField("歌曲來源", res.tracks[0].author, true);
             SongAddedEmbed.addField(
-              "Duration",
+              "歌曲時間",
               `\`${prettyMilliseconds(res.tracks[0].duration, {
                 colonNotation: true,
               })}\``,
@@ -392,7 +392,7 @@ module.exports = {
             );
             if (player.queue.totalSize > 1)
               SongAddedEmbed.addField(
-                "Position in queue",
+                "隊列位置",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -411,8 +411,8 @@ module.exports = {
               `[${res.playlist.name}](${interaction.data.options[0].value})`
             );
             SongAdded.addField(
-              "Enqueued",
-              `\`${res.tracks.length}\` songs`,
+              "加入隊列",
+              `\`${res.tracks.length}\` 首歌曲`,
               false
             );
             SongAdded.addField(
@@ -430,15 +430,15 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length) {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
-                `Added to queue`,
+                `加入隊列`,
                 client.botconfig.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
               SongAddedEmbed.setColor(client.botconfig.EmbedColor);
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
-              SongAddedEmbed.addField("Author", track.author, true);
+              SongAddedEmbed.addField("歌曲來源", track.author, true);
               SongAddedEmbed.addField(
-                "Duration",
+                "歌曲時間",
                 `\`${prettyMilliseconds(track.duration, {
                   colonNotation: true,
                 })}\``,
@@ -446,7 +446,7 @@ module.exports = {
               );
               if (player.queue.totalSize > 1)
                 SongAddedEmbed.addField(
-                  "Position in queue",
+                  "隊列位置",
                   `${player.queue.size - 0}`,
                   true
                 );
@@ -461,9 +461,9 @@ module.exports = {
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
               SongAddedEmbed.setColor(client.botconfig.EmbedColor);
               SongAddedEmbed.setDescription(`[${track.title}](${track.uri})`);
-              SongAddedEmbed.addField("Author", track.author, true);
+              SongAddedEmbed.addField("歌曲來源", track.author, true);
               SongAddedEmbed.addField(
-                "Duration",
+                "歌曲時間",
                 `\`${prettyMilliseconds(track.duration, {
                   colonNotation: true,
                 })}\``,
@@ -471,7 +471,7 @@ module.exports = {
               );
               if (player.queue.totalSize > 1)
                 SongAddedEmbed.addField(
-                  "Position in queue",
+                  "隊列位置",
                   `${player.queue.size - 0}`,
                   true
                 );

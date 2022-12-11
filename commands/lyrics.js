@@ -45,7 +45,7 @@ module.exports = {
 
     let Pages = SplitedLyrics.map((ly) => {
       let em = new MessageEmbed()
-        .setAuthor(`Lyrics for: ${SongTitle}`, client.botconfig.IconURL)
+        .setAuthor(`歌詞: ${SongTitle}`, client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(ly.join("\n"));
 
@@ -102,7 +102,7 @@ module.exports = {
 
       let Pages = SplitedLyrics.map((ly) => {
         let em = new MessageEmbed()
-          .setAuthor(`Lyrics for: ${SongTitle}`, client.botconfig.IconURL)
+          .setAuthor(`歌詞: ${SongTitle}`, client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
           .setDescription(ly.join("\n"));
 

@@ -27,12 +27,12 @@ module.exports = {
 
     let song = player.queue.current;
     let QueueEmbed = new MessageEmbed()
-      .setAuthor("Currently playing", client.botconfig.IconURL)
+      .setAuthor("現正播放", client.botconfig.IconURL)
       .setColor(client.botconfig.EmbedColor)
       .setDescription(`[${song.title}](${song.uri})`)
-      .addField("Requested by", `${song.requester}`, true)
+      .addField("點播者", `${song.requester}`, true)
       .addField(
-        "Duration",
+        "歌曲時間",
         `${
           client.ProgressBar(player.position, player.queue.current.duration, 15)
             .Bar
@@ -64,12 +64,12 @@ module.exports = {
 
       let song = player.queue.current;
       let QueueEmbed = new MessageEmbed()
-        .setAuthor("Currently playing", client.botconfig.IconURL)
+        .setAuthor("現正播放", client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(`[${song.title}](${song.uri})`)
-        .addField("Requested by", `${song.requester}`, true)
+        .addField("點播者", `${song.requester}`, true)
         .addField(
-          "Duration",
+          "歌曲時間",
           `${
             client.ProgressBar(
               player.position,

@@ -44,7 +44,7 @@ module.exports = {
       );
     player.pause(true);
     let embed = new MessageEmbed()
-      .setAuthor(`Paused!`, client.botconfig.IconURL)
+      .setAuthor(`暫停播放!`, client.botconfig.IconURL)
       .setColor(client.botconfig.EmbedColor)
       .setDescription(`輸入 \`${GuildDB.prefix}resume\` 來繼續播放!`);
     await message.channel.send(embed);

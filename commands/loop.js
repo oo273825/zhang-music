@@ -40,10 +40,10 @@ module.exports = {
 
     if (player.trackRepeat) {
       player.setTrackRepeat(false);
-      client.sendTime(message.channel, `🔂  \`Disabled\``);
+      client.sendTime(message.channel, `🔂  \`關閉\``);
     } else {
       player.setTrackRepeat(true);
-      client.sendTime(message.channel, `🔂 \`Enabled\``);
+      client.sendTime(message.channel, `🔂 \`啟用\``);
     }
   },
   SlashCommand: {
@@ -80,10 +80,10 @@ module.exports = {
 
       if (player.trackRepeat) {
         player.setTrackRepeat(false);
-        client.sendTime(interaction, `🔂 \`Disabled\``);
+        client.sendTime(interaction, `🔂 \`關閉\``);
       } else {
         player.setTrackRepeat(true);
-        client.sendTime(interaction, `🔂 \`Enabled\``);
+        client.sendTime(interaction, `🔂 \`啟用\``);
       }
       console.log(interaction.data);
     },

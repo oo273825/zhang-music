@@ -40,10 +40,10 @@ module.exports = {
 
     if (player.queueRepeat) {
       player.setQueueRepeat(false);
-      client.sendTime(message.channel, `:repeat: 循環隊列 \`關閉\``);
+      client.sendTime(message.channel, `:repeat: 隊列循環 \`關閉\``);
     } else {
       player.setQueueRepeat(true);
-      client.sendTime(message.channel, `:repeat: 循環隊列 \`啟用\``);
+      client.sendTime(message.channel, `:repeat: 隊列循環 \`啟用\``);
     }
   },
   SlashCommand: {
@@ -81,10 +81,10 @@ module.exports = {
 
       if (player.queueRepeat) {
         player.setQueueRepeat(false);
-        client.sendTime(interaction, `:repeat: **循環隊列** \`關閉\``);
+        client.sendTime(interaction, `:repeat: **隊列循環** \`關閉\``);
       } else {
         player.setQueueRepeat(true);
-        client.sendTime(interaction, `:repeat: **循環隊列** \`啟用\``);
+        client.sendTime(interaction, `:repeat: **隊列循環** \`啟用\``);
       }
       console.log(interaction.data);
     },

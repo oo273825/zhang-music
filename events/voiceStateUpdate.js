@@ -51,10 +51,10 @@ module.exports = async (client, oldState, newState) => {
     case "JOIN":
       if (stateChange.members.size === 1 && player.paused) {
         let emb = new MessageEmbed()
-          .setAuthor(`Resuming paused queue`, client.botconfig.IconURL)
+          .setAuthor(`音樂恢復播放 !`, client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
           .setDescription(
-            `Resuming playback because all of you left me with music to play all alone`
+            `恢復播放 ! 謝謝你讓張先生不像個可悲孤兒 !`
           );
         await client.channels.cache.get(player.textChannel).send(emb);
 
@@ -72,9 +72,9 @@ module.exports = async (client, oldState, newState) => {
         player.pause(true);
 
         let emb = new MessageEmbed()
-          .setAuthor(`Paused!`, client.botconfig.IconURL)
+          .setAuthor(`音樂暫停播放 !`, client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
-          .setDescription(`The player has been paused because everybody left`);
+          .setDescription(`音樂暫停 ! 因為張先生像孤兒一樣，孤身一人在這 !`);
         await client.channels.cache.get(player.textChannel).send(emb);
       }
       break;

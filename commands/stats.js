@@ -113,7 +113,7 @@ module.exports = {
         embed.setTitle(`關於 \`${client.user.username}\` 所有的所有`);
         embed.addFields(
           {
-            name: ":ping_pong: Ping",
+            name: "::zzz321:: Ping",
             value: `┕\`${Math.round(client.ws.ping)}ms\``,
             inline: true,
           },

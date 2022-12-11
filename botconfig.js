@@ -5,7 +5,7 @@ module.exports = {
   Port: 3000, //Which port website gonna be hosted
   SupportServer: "https://discord.gg/sbySMS7m3v", // Support Server Link
   Token: process.env.Token || "", // Discord Bot Token
-  ClientID: process.env.Discord_ClientID || "1023519908396548106", // Discord Client ID
+  ClientID: process.env.Discord_ClientID || "", // Discord Client ID
   ClientSecret: process.env.Discord_ClientSecret || "", // Discord Client Secret
   Scopes: ["identify", "guilds", "applications.commands"], // Discord OAuth2 Scopes
   ServerDeafen: true, // If you want bot to stay deafened
@@ -39,7 +39,7 @@ module.exports = {
   },
   // Spotify Integration, allows you to enter a spotify link.
   Spotify: {
-    ClientID: process.env.Spotify_ClientID || "db0a495b92a8491f9cb99583bd1f6813", // Spotify Client ID
+    ClientID: process.env.Spotify_ClientID || "", // Spotify Client ID
     ClientSecret: process.env.Spotify_ClientSecret || "", // Spotify Client Secret
   },
 };

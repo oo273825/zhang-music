@@ -63,7 +63,7 @@ module.exports = {
       //Send Success Message
       return client.sendTime(
         message.channel,
-        `⏭ Skipped \`${Number(args[0] - 1)}\` songs`
+        `⏭ 跳過 \`${Number(args[0] - 1)}\` 首歌曲`
       );
     } catch (e) {
       console.log(String(e.stack).bgRed);
@@ -141,7 +141,7 @@ module.exports = {
         //Send Success Message
         return client.sendTime(
           interaction,
-          `⏭ Skipped \`${Number(skipTo)}\` songs`
+          `⏭ 跳過 \`${Number(skipTo)}\` 首歌曲`
         );
       } catch (e) {
         console.log(String(e.stack).bgRed);

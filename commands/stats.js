@@ -34,38 +34,36 @@ module.exports = {
       embed.setTitle(`關於 \`${client.user.username}\` 所有的所有`);
       embed.addFields(
         {
-          name: ":ping_pong: Ping",
+          name: ":goat: Ping",
           value: `┕\`${Math.round(client.ws.ping)}ms\``,
           inline: true,
         },
         {
-          name: ":clock1: Uptime",
+          name: ":clock1: 上線時間",
           value: `┕\`${duration}\``,
           inline: true,
         },
         {
-          name: ":file_cabinet: Memory",
-          value: `┕\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(
-            2
-          )}mb\``,
+          name: ":tada: 紀念日",
+          value: `┕\`11月25日\``,
           inline: true,
         }
       );
 
       embed.addFields(
         {
-          name: ":homes: Servers",
-          value: `┕\`${client.guilds.cache.size}\``,
+          name: ":poop: 代號",
+          value: `┕\`F\``,
           inline: true,
         },
         {
-          name: ":busts_in_silhouette: Users",
-          value: `┕\`${client.users.cache.size}\``,
+          name: ":flag_tw: 編碼",
+          value: `┕\`130376371\``,
           inline: true,
         },
         {
-          name: ":control_knobs: API Latency",
-          value: `┕\`${message.client.ws.ping}ms\``,
+          name: ":microphone: 最想當",
+          value: `┕\`歌手\``,
           inline: true,
         }
       );

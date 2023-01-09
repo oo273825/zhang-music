@@ -33,7 +33,7 @@ module.exports = {
       let embede= new MessageEmbed()
       .setAuthor(
         "嗨你媽",
-        "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true","https://github.com/oo273825/zhang-music/blob/main/987.gif?raw=true"
+        "https://github.com/oo273825/zhang-music/blob/main/jammies.gif?raw=true"
       );
       message.channel.send(embede);
       
@@ -61,7 +61,7 @@ module.exports = {
         let embede= new MessageEmbed()
       .setAuthor(
         "嗨你媽",
-        "https://github.com/oo273825/zhang-music/blob/main/YT.gif?raw=true","https://github.com/oo273825/zhang-music/blob/main/987.gif?raw=true"
+        "https://github.com/oo273825/zhang-music/blob/main/jammies.gif?raw=true"
       );
       message.channel.send(embede);
       });

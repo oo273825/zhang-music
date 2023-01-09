@@ -29,6 +29,7 @@ module.exports = {
         .duration(message.client.uptime)
         .format(" D[d], H[h], m[m]");
 
+      
       const embed = new MessageEmbed();
       embed.setColor(client.botconfig.EmbedColor);
       embed.setTitle(`關於 \`${client.user.username}\` 所有的所有`);
@@ -67,26 +68,12 @@ module.exports = {
           inline: true,
         }
       );
-      embed.addFields(
-        {
-          name: ":robot: Version",
-          value: `┕\`v${require("../package.json").version}\``,
-          inline: true,
-        },
-        {
-          name: ":blue_book: Discord.js",
-          value: `┕\`v${version}\``,
-          inline: true,
-        },
-        {
-          name: ":green_book: Node",
-          value: `┕\`${process.version}\``,
-          inline: true,
-        }
-      );
+      
 
       return message.channel.send(embed);
+      
     });
+    
   },
   SlashCommand: {
     /**

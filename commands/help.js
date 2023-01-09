@@ -36,12 +36,8 @@ module.exports = {
         }help [Command] | 祝你有個美好的屁眼日!`
       ).setDescription(`${Commands.join("\n")}
   
-  Discord Music Bot Version: v${require("../package.json").version}
-  [✨ Support Server](${
-    client.botconfig.SupportServer
-  }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${
-      client.botconfig.Website
-    }) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
+  
+  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel](https://www.instagram.com/dd__4857/)`);
     if (!args[0]) message.channel.send(Embed);
     else {
       let cmd =
@@ -122,12 +118,8 @@ module.exports = {
         }help [Command] | 祝你有個美好的屁眼日!`
         ).setDescription(`${Commands.join("\n")}
   
-  張先生目前等級: v${require("../package.json").version}
-  [✨ Support Server](${
-    client.botconfig.SupportServer
-  }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${
-        client.botconfig.Website
-      }) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
+  
+  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel](https://www.instagram.com/dd__4857/)`);
       if (!args) return interaction.send(Embed);
       else {
         let cmd =

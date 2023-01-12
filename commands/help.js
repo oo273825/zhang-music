@@ -37,7 +37,7 @@ module.exports = {
       ).setDescription(`${Commands.join("\n")}
   
   
-  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel](https://danielhung4857.webnode.tw/)`);
+  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel  Hung](https://danielhung4857.webnode.tw/)`);
     if (!args[0]) message.channel.send(Embed);
     else {
       let cmd =
@@ -119,7 +119,7 @@ module.exports = {
         ).setDescription(`${Commands.join("\n")}
   
   
-  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel](https://danielhung4857.webnode.tw/)`);
+  [:angel: Follow我](https://www.instagram.com/chen.y32/) | [Vlog](https://www.youtube.com/channel/UC1KP1wS1JoFtDfhcgt87pow) | [最愛的歌](https://www.youtube.com/watch?v=v7y2Xdg_MZ8) | By [Daniel Hung](https://danielhung4857.webnode.tw/)`);
       if (!args) return interaction.send(Embed);
       else {
         let cmd =
